@@ -14,7 +14,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json(Category::all()->toArray());
     }
 
     /**
@@ -35,7 +35,7 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return response()->json(['status' => true, 'message' => 'Category Created']);
     }
 
     /**
@@ -80,6 +80,6 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        return response()->json(['status' => true, 'message' => 'Category Deleted']);
     }
 }
