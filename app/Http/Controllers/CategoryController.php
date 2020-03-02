@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class CategoryController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Gets all the categories.
      *
      * @return \Illuminate\Http\Response
      */
@@ -18,50 +18,45 @@ class CategoryController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Get all the task of a category
      *
-     * @return \Illuminate\Http\Response
+     * @param Category $category
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function create()
+    public function tasks(Category $category)
     {
-        //
+        return response()->json($category->tasks()->orderBy('order')->get());
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created category in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        return response()->json(['status' => true, 'message' => 'Category Created']);
+        $category = Category::create($request->only('name'));
+
+        return response()->json([
+            'status' => (bool) $category,
+            'message'=> $category ? 'Category Created' : 'Error Creating Category'
+        ]);
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified category.
      *
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
     public function show(Category $category)
     {
-        //
+        return response()->json($category);
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Category  $category
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Category $category)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
+     * Update the specified category in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Category  $category
@@ -69,17 +64,28 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $status = $category->update($request->only('name'));
+
+        return response()->json([
+            'status' => $status,
+            'message' => $status ? 'Category Updated!' : 'Error Updating Category'
+        ]);
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified category from database.
      *
-     * @param  \App\Category  $category
+     * @param \App\Category $category
      * @return \Illuminate\Http\Response
+     * @throws \Exception
      */
     public function destroy(Category $category)
     {
-        return response()->json(['status' => true, 'message' => 'Category Deleted']);
+        $status  = $category->delete();
+
+        return response()->json([
+            'status' => $status,
+            'message' => $status ? 'Category Deleted' : 'Error Deleting Category'
+        ]);
     }
 }

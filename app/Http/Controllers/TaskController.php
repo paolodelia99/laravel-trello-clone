@@ -8,27 +8,17 @@ use Illuminate\Http\Request;
 class TaskController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Gets all the tasks.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
+        return response()->json(Task::all()->toArray());
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
+     * Store a newly created task in the database.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -52,29 +42,18 @@ class TaskController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified task.
      *
      * @param  \App\Task  $task
      * @return \Illuminate\Http\Response
      */
     public function show(Task $task)
     {
-        //
+        return response()->json($task);
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Task  $task
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Task $task)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
+     * Update the specified task in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Task  $task
@@ -82,17 +61,30 @@ class TaskController extends Controller
      */
     public function update(Request $request, Task $task)
     {
-        //
+        $status = $task->update(
+            $request->only(['name', 'category_id', 'user_id', 'order'])
+        );
+
+        return response()->json([
+            'status' => $status,
+            'message' => $status ? 'Task Updated!' : 'Error Updating Task'
+        ]);
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified Task form the database.
      *
-     * @param  \App\Task  $task
+     * @param \App\Task $task
      * @return \Illuminate\Http\Response
+     * @throws \Exception
      */
     public function destroy(Task $task)
     {
-        //
+        $status = $task->delete();
+
+        return response()->json([
+            'status' => $status,
+            'message' => $status ? 'Task Deleted!' : 'Error Deleting Task'
+        ]);
     }
 }
