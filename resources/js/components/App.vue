@@ -32,7 +32,7 @@
         name: "App",
         data(){
             return{
-                isLoggedIn null,
+                isLoggedIn: null,
                 name: null
             }
         },
