@@ -41,12 +41,13 @@
         data(){
             return {
                 categories : [],
+                categories : [],
                 editingTask : null
             }
         },
         methods : {
             addNew(id) {
-                let user_id = 1
+                let user_id = 2
                 let name = "New task"
                 let category_id = this.categories[id].id
                 let order = this.categories[id].tasks.length

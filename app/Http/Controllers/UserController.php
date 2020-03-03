@@ -33,6 +33,8 @@ class UserController extends Controller
     }
 
     /**
+     * Register a user
+     *
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
@@ -61,5 +63,20 @@ class UserController extends Controller
     public function getDetails()
     {
         return response()->json(['success' => Auth::user()]);
+    }
+
+    /**
+     * Logout a user
+     *
+     * @param Request $request
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
+     */
+    public function logout(Request $request){
+
+        $token = $request->user()->token();
+        $token->revoke();
+
+        $response = 'You have been succesfully logged out!';
+        return response($response, 200);
     }
 }

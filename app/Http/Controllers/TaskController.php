@@ -33,6 +33,7 @@ class TaskController extends Controller
         ]);
 
         $data = [
+            'reuquest' => $request,
             'data' => $task,
             'status' => (bool) $task,
             'message' => $task ? 'Task Created!' : 'Error Creating Task',
