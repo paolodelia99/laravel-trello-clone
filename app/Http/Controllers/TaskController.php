@@ -14,7 +14,7 @@ class TaskController extends Controller
      */
     public function index()
     {
-        return response()->json(Task::all()->toArray());
+        return response()->json(Task::all()->where('user_id',auth()->user()->id));
     }
 
     /**
@@ -33,7 +33,6 @@ class TaskController extends Controller
         ]);
 
         $data = [
-            'reuquest' => $request,
             'data' => $task,
             'status' => (bool) $task,
             'message' => $task ? 'Task Created!' : 'Error Creating Task',

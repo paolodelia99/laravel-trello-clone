@@ -26,6 +26,7 @@ class UserController extends Controller
             $success['token'] = Auth::user()->createToken('MyApp')->accessToken;
 
             $success['name'] = Auth::user()->name;
+            $success['user_id'] = Auth::user()->id;
             return response()->json(['success' => $success]);
         }
 
@@ -56,6 +57,7 @@ class UserController extends Controller
         $user = User::create($input);
         $success['token'] = $user->createToken('MyApp')->accessToken;
         $success['name'] = $user->name;
+        $success['user_id'] = $user->id;
 
         return response()->json(['success' => $success]);
     }
@@ -65,6 +67,7 @@ class UserController extends Controller
         return response()->json(['success' => Auth::user()]);
     }
 
+    //fixme: capire come loggare out
     /**
      * Logout a user
      *
@@ -73,7 +76,7 @@ class UserController extends Controller
      */
     public function logout(Request $request){
 
-        $token = $request->user()->token();
+        $token = auth()->user()->token();
         $token->revoke();
 
         $response = 'You have been succesfully logged out!';
