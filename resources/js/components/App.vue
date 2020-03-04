@@ -17,7 +17,7 @@
                         <router-link :to="{ name: 'login' }" class="nav-link" v-if="!isLoggedIn">Login</router-link>
                         <router-link :to="{ name: 'register' }" class="nav-link" v-if="!isLoggedIn">Register</router-link>
                         <li class="nav-link" v-if="isLoggedIn"> Hi, {{name}}</li>
-                        <button @click="logout" class="nav-link" v-if="isLoggedIn">Logout</button>
+                        <li @click="logout" class="nav-link" v-if="isLoggedIn">Logout</li>
                     </ul>
                 </div>
             </div>
@@ -40,11 +40,16 @@
         },
         methods:{
           async logout(){
+              let token = localStorage.getItem('jwt');
+
+              axios.defaults.headers.common['Content-Type'] = 'application/json';
+              axios.defaults.headers.common['Authorization'] = 'Bearer ' + token;
 
               await axios.get('/api/logout')
                 .then( () => {
                     localStorage.removeItem('jwt');
                     localStorage.removeItem('user');
+                    localStorage.removeItem('user_id');
 
                     if (localStorage.getItem('jwt') == null){
                         this.$router.go('/home');

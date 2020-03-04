@@ -58,6 +58,7 @@
                     })
                         .then(response => {
                             localStorage.setItem('user',response.data.success.name)
+                            localStorage.setItem('user_id',response.data.success.user_id)
                             localStorage.setItem('jwt',response.data.success.token)
 
                             if (localStorage.getItem('jwt') != null){

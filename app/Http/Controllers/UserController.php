@@ -75,11 +75,10 @@ class UserController extends Controller
      * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
      */
     public function logout(Request $request){
+        $request->user()->token()->revoke();
 
-        $token = auth()->user()->token();
-        $token->revoke();
-
-        $response = 'You have been succesfully logged out!';
-        return response($response, 200);
+        return response()->json([
+            'message' => 'Successfully logged out'
+        ]);
     }
 }

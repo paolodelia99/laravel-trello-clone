@@ -25,7 +25,7 @@ class CategoryController extends Controller
      */
     public function tasks(Category $category)
     {
-        return response()->json($category->tasks()->orderBy('order')->get());
+        return response()->json($category->tasks()->where('user_id',auth()->user()->id)->orderBy('order')->get());
     }
 
     /**

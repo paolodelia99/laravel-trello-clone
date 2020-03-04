@@ -80,6 +80,7 @@
                         .then(response => {
                             localStorage.setItem('user',response.data.success.name)
                             localStorage.setItem('jwt',response.data.success.token)
+                            localStorage.setItem('user_id',response.data.success.user_id)
 
                             if (localStorage.getItem('jwt') != null){
                                 this.$router.go('/board')
@@ -89,8 +90,8 @@
                             console.error(error);
                         });
                 } else {
-                    this.password = ""
-                    this.passwordConfirm = ""
+                    this.password = "";
+                    this.passwordConfirm = "";
 
                     return alert('Passwords do not match')
                 }
