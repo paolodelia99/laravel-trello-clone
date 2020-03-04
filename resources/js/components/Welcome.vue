@@ -2,10 +2,10 @@
     <div class="flex-center position-ref full-height">
         <div class="content">
             <div  class="m-b-md">
-                <h2 class="title m-b-md">
+                <h2 class="title m-b-md text-white font-weight-bold">
                     Treclon
                 </h2>
-                <h3>
+                <h3 class="text-white">
                     Your efficent task planner
                 </h3>
             </div>
@@ -39,9 +39,11 @@
     .content {
         text-align: center;
     }
+
     .title {
         font-size: 60px;
     }
+
     .links > a {
         color: #636b6f;
         padding: 0 25px;
@@ -51,6 +53,7 @@
         text-decoration: none;
         text-transform: uppercase;
     }
+
     .m-b-md {
         margin-bottom: 30px;
         color: #000000;

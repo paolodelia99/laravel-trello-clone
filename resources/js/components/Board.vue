@@ -4,7 +4,7 @@
             <div class="categories-container">
                 <div class="tasks-container" v-for="(category,catIndex) in categories" :key="category.id">
                     <div class="card">
-                        <div class="card-header">
+                        <div class="card-header custom-card-header">
                             <h4 class="card-title">{{category.name}}</h4>
                         </div>
                         <div class="card-body card-body-dark">
@@ -80,7 +80,6 @@
                 })
             },
             changeOrder(data){
-                console.log(data)
                 let toTask = data.to;
                 let fromTask = data.from;
                 let task_id = data.item.id;
@@ -88,17 +87,13 @@
                 let order = data.newIndex == data.oldIndex ? false : data.newIndex;
 
                 if (order !== false) {
-                    axios.patch(`api/task/${task_id}`, {order, category_id}).then(response => {
-                        // Do Nothing
-                    });
+                    axios.patch(`api/task/${task_id}`, {order, category_id});
                 }
             },
             endEditing(task) {
                 this.editingTask = null;
 
-                axios.patch(`api/task/${task.id}`, {name: task.name}).then(response => {
-                    // Do nothing
-                })
+                axios.patch(`api/task/${task.id}`, {name: task.name});
             },
             editTask(task){
                 this.editingTask = task
@@ -149,6 +144,11 @@
 </script>
 
 <style scoped>
+    .custom-card-header{
+        background: #00c2e0;
+        color: white!important;
+    }
+
     .categories-container{
         width: 100%;
         display:flex;

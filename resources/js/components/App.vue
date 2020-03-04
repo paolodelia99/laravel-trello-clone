@@ -1,9 +1,9 @@
 <template>
     <div>
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+        <nav class="navbar navbar-expand-md navbar-light custom-navbar navbar-laravel">
             <div class="container">
-                <router-link :to="{name: 'home'}" class="navbar-brand" v-if="!isLoggedIn">Treclon</router-link>
-                <router-link :to="{name: 'board'}" class="navbar-brand" v-if="isLoggedIn">Treclon</router-link>
+                <router-link :to="{name: 'home'}" class="navbar-brand text-white" v-if="!isLoggedIn">Treclon</router-link>
+                <router-link :to="{name: 'board'}" class="navbar-brand text-white" v-if="isLoggedIn">Treclon</router-link>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -14,15 +14,15 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
-                        <router-link :to="{ name: 'login' }" class="nav-link" v-if="!isLoggedIn">Login</router-link>
-                        <router-link :to="{ name: 'register' }" class="nav-link" v-if="!isLoggedIn">Register</router-link>
-                        <li class="nav-link" v-if="isLoggedIn"> Hi, {{name}}</li>
-                        <li @click="logout" class="nav-link" v-if="isLoggedIn">Logout</li>
+                        <router-link :to="{ name: 'login' }" class="nav-link text-white-50 custom-nav-link" v-if="!isLoggedIn">Login</router-link>
+                        <router-link :to="{ name: 'register' }" class="nav-link text-white-50 custom-nav-link" v-if="!isLoggedIn">Register</router-link>
+                        <li class="nav-link text-white-50" v-if="isLoggedIn"> Hi, {{name}}</li>
+                        <li @click="logout" class="nav-link text-white-50 custom-nav-link" v-if="isLoggedIn">Logout</li>
                     </ul>
                 </div>
             </div>
         </nav>
-        <main class="py-4">
+        <main class="py-4 board-wrapper">
             <router-view></router-view>
         </main>
     </div>
@@ -70,6 +70,21 @@
     }
 </script>
 
-<style scoped>
+<style>
+    body{
+        background: #00c2e0;
+    }
 
+    .custom-navbar{
+        background: #0079bf!important;
+    }
+
+    .custom-nav-link:hover{
+        text-decoration-color: white;
+        color: white!important;
+    }
+
+    .board-wrapper{
+        background: #00c2e0;
+    }
 </style>

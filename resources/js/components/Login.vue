@@ -2,8 +2,8 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card card-default">
-                    <div class="card-header">Login</div>
+                <div class="card card-default border-0">
+                    <div class="card-header custom-card-header text-center font-weight-bolder">Login</div>
 
                     <div class="card-body">
                         <form method="POST" action="/login">
@@ -82,5 +82,8 @@
 </script>
 
 <style scoped>
-
+    .custom-card-header{
+        background: #0079bf;
+        color: white!important;
+    }
 </style>
