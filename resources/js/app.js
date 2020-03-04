@@ -1,7 +1,21 @@
-import Vue          from 'vue'
-import VueRouter    from 'vue-router'
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import feather from 'vue-icon';
 
 Vue.use(VueRouter);
+Vue.use(feather, {
+    name: 'v-icon',
+    props: {
+        baseClass: {
+            type: String,
+            default: 'v-icon'
+        },
+        classPrefix: {
+            type: String,
+            default: 'v-icon-'
+        }
+    }
+});
 
 import App          from './components/App'
 import Dashboard    from './components/Board'

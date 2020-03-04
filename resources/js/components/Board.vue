@@ -1,37 +1,37 @@
 <template>
     <div class="container">
         <div class="row justify-content-center">
-            <draggable element="div" class="col-md-12" v-model="categories" :options="dragOptions">
-                <transition-group class="row categories-container">
-                    <div class="tasks-container" v-for="(category,catIndex) in categories" :key="category.id">
-                        <div class="card">
-                            <div class="card-header">
-                                <h4 class="card-title">{{category.name}}</h4>
-                            </div>
-                            <div class="card-body card-body-dark">
-                                <draggable :options="dragOptions" element="div" @end="changeOrder" v-model="category.tasks">
-                                    <transition-group :id="category.id">
-                                        <div v-for="(task,taskIndex) in category.tasks" :key="task.category_id+','+task.order+','+task.id" class="transit-1" :id="task.id">
-                                            <div class="small-card">
-                                                <div style="flex-grow: 5">
-                                                    <textarea v-if="task === editingTask" class="text-input" @keyup.enter="endEditing(task)" @blur="endEditing(task)" v-model="task.name"></textarea>
-                                                    <label for="checkbox" v-if="task !== editingTask" @dblclick="editTask(task)" class="task-text-container">{{ task.name }}</label>
-                                                </div>
-                                                <div style="flex-grow: 1">
-                                                    x
-                                                </div>
+            <div class="categories-container">
+                <div class="tasks-container" v-for="(category,catIndex) in categories" :key="category.id">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">{{category.name}}</h4>
+                        </div>
+                        <div class="card-body card-body-dark">
+                            <draggable :options="dragOptions" element="div" @end="changeOrder" v-model="category.tasks">
+                                <transition-group :id="category.id">
+                                    <div v-for="(task,taskIndex) in category.tasks" :key="task.category_id+','+task.order+','+task.id" class="transit-1" :id="task.id">
+                                        <div class="small-card">
+                                            <div style="width: 85%">
+                                                <textarea v-if="task === editingTask" class="text-input" @keyup.enter="endEditing(task)" @blur="endEditing(task)" v-model="task.name"></textarea>
+                                                <label for="checkbox" v-if="task !== editingTask" @dblclick="editTask(task)" class="task-text-container">{{ task.name }}</label>
+                                            </div>
+                                            <div class="cancel-wrapper" >
+                                                <button @click="deleteTask($event,task.id)" class="delete-btn">
+                                                    <v-icon name="x-circle"/>
+                                                </button>
                                             </div>
                                         </div>
-                                    </transition-group>
-                                </draggable>
-                                <div class="small-card">
-                                    <h5 class="text-center" @click="addNew(catIndex)">Add new card</h5>
-                                </div>
+                                    </div>
+                                </transition-group>
+                            </draggable>
+                            <div class="small-card">
+                                <h5 class="text-center" @click="addNew(catIndex)">Add new card</h5>
                             </div>
                         </div>
                     </div>
-                </transition-group>
-            </draggable>
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -92,6 +92,14 @@
             },
             editTask(task){
                 this.editingTask = task
+            },
+            deleteTask(e,id){
+                axios.delete(`api/task/${id}`)
+                    .then(()=>{
+                        const smallCardNode = e.target.parentNode.parentNode.parentNode;
+
+                        smallCardNode.style.display = "none";
+                    });
             }
         },
         mounted(){
@@ -132,6 +140,7 @@
 
 <style scoped>
     .categories-container{
+        width: 100%;
         display:flex;
         flex-direction: row;
         flex-wrap: nowrap;
@@ -159,6 +168,19 @@
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
+    }
+
+    .cancel-wrapper{
+        margin: 2px;
+    }
+
+    .delete-btn{
+        background: transparent;
+        border: none;
+    }
+
+    .icon,.v-icon{
+        width: 18px;
     }
 
     .task-text-container{
