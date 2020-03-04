@@ -2064,6 +2064,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Board",
@@ -2103,6 +2112,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     changeOrder: function changeOrder(data) {
+      console.log(data);
       var toTask = data.to;
       var fromTask = data.from;
       var task_id = data.item.id;
@@ -8350,144 +8360,143 @@ var render = function() {
                     _c(
                       "draggable",
                       {
-                        attrs: { options: _vm.dragOptions, element: "div" },
-                        on: { end: _vm.changeOrder },
-                        model: {
-                          value: category.tasks,
-                          callback: function($$v) {
-                            _vm.$set(category, "tasks", $$v)
-                          },
-                          expression: "category.tasks"
-                        }
+                        attrs: {
+                          options: _vm.dragOptions,
+                          list: category.tasks,
+                          element: "div",
+                          draggable: ".item",
+                          id: category.id
+                        },
+                        on: { end: _vm.changeOrder }
                       },
                       [
-                        _c(
-                          "transition-group",
-                          { attrs: { id: category.id } },
-                          _vm._l(category.tasks, function(task, taskIndex) {
-                            return _c(
-                              "div",
-                              {
-                                key:
-                                  task.category_id +
-                                  "," +
-                                  task.order +
-                                  "," +
-                                  task.id,
-                                staticClass: "transit-1",
-                                attrs: { id: task.id }
-                              },
-                              [
-                                _c("div", { staticClass: "small-card" }, [
-                                  _c("div", { staticStyle: { width: "85%" } }, [
-                                    task === _vm.editingTask
-                                      ? _c("textarea", {
-                                          directives: [
-                                            {
-                                              name: "model",
-                                              rawName: "v-model",
-                                              value: task.name,
-                                              expression: "task.name"
-                                            }
-                                          ],
-                                          staticClass: "text-input",
-                                          domProps: { value: task.name },
-                                          on: {
-                                            keyup: function($event) {
-                                              if (
-                                                !$event.type.indexOf("key") &&
-                                                _vm._k(
-                                                  $event.keyCode,
-                                                  "enter",
-                                                  13,
-                                                  $event.key,
-                                                  "Enter"
-                                                )
-                                              ) {
-                                                return null
-                                              }
-                                              return _vm.endEditing(task)
-                                            },
-                                            blur: function($event) {
-                                              return _vm.endEditing(task)
-                                            },
-                                            input: function($event) {
-                                              if ($event.target.composing) {
-                                                return
-                                              }
-                                              _vm.$set(
-                                                task,
-                                                "name",
-                                                $event.target.value
-                                              )
-                                            }
-                                          }
-                                        })
-                                      : _vm._e(),
-                                    _vm._v(" "),
-                                    task !== _vm.editingTask
-                                      ? _c(
-                                          "label",
+                        _vm._l(category.tasks, function(task, taskIndex) {
+                          return _c(
+                            "div",
+                            {
+                              key:
+                                task.category_id +
+                                "," +
+                                task.order +
+                                "," +
+                                task.id,
+                              staticClass: "transit-1 item",
+                              attrs: { id: task.id }
+                            },
+                            [
+                              _c("div", { staticClass: "small-card" }, [
+                                _c("div", { staticStyle: { width: "85%" } }, [
+                                  task === _vm.editingTask
+                                    ? _c("textarea", {
+                                        directives: [
                                           {
-                                            staticClass: "task-text-container",
-                                            attrs: { for: "checkbox" },
-                                            on: {
-                                              dblclick: function($event) {
-                                                return _vm.editTask(task)
-                                              }
-                                            }
-                                          },
-                                          [_vm._v(_vm._s(task.name))]
-                                        )
-                                      : _vm._e()
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("div", { staticClass: "cancel-wrapper" }, [
-                                    _c(
-                                      "button",
-                                      {
-                                        staticClass: "delete-btn",
+                                            name: "model",
+                                            rawName: "v-model",
+                                            value: task.name,
+                                            expression: "task.name"
+                                          }
+                                        ],
+                                        staticClass: "text-input",
+                                        domProps: { value: task.name },
                                         on: {
-                                          click: function($event) {
-                                            return _vm.deleteTask(
-                                              $event,
-                                              task.id
+                                          keyup: function($event) {
+                                            if (
+                                              !$event.type.indexOf("key") &&
+                                              _vm._k(
+                                                $event.keyCode,
+                                                "enter",
+                                                13,
+                                                $event.key,
+                                                "Enter"
+                                              )
+                                            ) {
+                                              return null
+                                            }
+                                            return _vm.endEditing(task)
+                                          },
+                                          blur: function($event) {
+                                            return _vm.endEditing(task)
+                                          },
+                                          input: function($event) {
+                                            if ($event.target.composing) {
+                                              return
+                                            }
+                                            _vm.$set(
+                                              task,
+                                              "name",
+                                              $event.target.value
                                             )
                                           }
                                         }
-                                      },
-                                      [
-                                        _c("v-icon", {
-                                          attrs: { name: "x-circle" }
-                                        })
-                                      ],
-                                      1
-                                    )
-                                  ])
+                                      })
+                                    : _vm._e(),
+                                  _vm._v(" "),
+                                  task !== _vm.editingTask
+                                    ? _c(
+                                        "label",
+                                        {
+                                          staticClass: "task-text-container",
+                                          attrs: { for: "checkbox" },
+                                          on: {
+                                            dblclick: function($event) {
+                                              return _vm.editTask(task)
+                                            }
+                                          }
+                                        },
+                                        [_vm._v(_vm._s(task.name))]
+                                      )
+                                    : _vm._e()
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "cancel-wrapper" }, [
+                                  _c(
+                                    "button",
+                                    {
+                                      staticClass: "delete-btn",
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.deleteTask($event, task.id)
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _c("v-icon", {
+                                        attrs: { name: "x-circle" }
+                                      })
+                                    ],
+                                    1
+                                  )
                                 ])
-                              ]
+                              ])
+                            ]
+                          )
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass: "small-card",
+                            attrs: { slot: "footer", role: "group" },
+                            slot: "footer"
+                          },
+                          [
+                            _c(
+                              "h5",
+                              {
+                                staticClass: "text-center",
+                                on: {
+                                  click: function($event) {
+                                    return _vm.addNew(catIndex)
+                                  }
+                                }
+                              },
+                              [_vm._v("Add new card")]
                             )
-                          }),
-                          0
+                          ]
                         )
                       ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "small-card" }, [
-                      _c(
-                        "h5",
-                        {
-                          staticClass: "text-center",
-                          on: {
-                            click: function($event) {
-                              return _vm.addNew(catIndex)
-                            }
-                          }
-                        },
-                        [_vm._v("Add new card")]
-                      )
-                    ])
+                      2
+                    )
                   ],
                   1
                 )

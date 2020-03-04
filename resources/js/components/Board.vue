@@ -8,26 +8,35 @@
                             <h4 class="card-title">{{category.name}}</h4>
                         </div>
                         <div class="card-body card-body-dark">
-                            <draggable :options="dragOptions" element="div" @end="changeOrder" v-model="category.tasks">
-                                <transition-group :id="category.id">
-                                    <div v-for="(task,taskIndex) in category.tasks" :key="task.category_id+','+task.order+','+task.id" class="transit-1" :id="task.id">
-                                        <div class="small-card">
-                                            <div style="width: 85%">
-                                                <textarea v-if="task === editingTask" class="text-input" @keyup.enter="endEditing(task)" @blur="endEditing(task)" v-model="task.name"></textarea>
-                                                <label for="checkbox" v-if="task !== editingTask" @dblclick="editTask(task)" class="task-text-container">{{ task.name }}</label>
-                                            </div>
-                                            <div class="cancel-wrapper" >
-                                                <button @click="deleteTask($event,task.id)" class="delete-btn">
-                                                    <v-icon name="x-circle"/>
-                                                </button>
-                                            </div>
+                            <draggable
+                                :options="dragOptions"
+                                :list="category.tasks"
+                                element="div"
+                                @end="changeOrder"
+                                draggable=".item"
+                                :id="category.id"
+                            >
+                                <div v-for="(task,taskIndex) in category.tasks" :key="task.category_id+','+task.order+','+task.id" class="transit-1 item" :id="task.id">
+                                    <div class="small-card">
+                                        <div style="width: 85%">
+                                            <textarea v-if="task === editingTask" class="text-input" @keyup.enter="endEditing(task)" @blur="endEditing(task)" v-model="task.name"></textarea>
+                                            <label for="checkbox" v-if="task !== editingTask" @dblclick="editTask(task)" class="task-text-container">{{ task.name }}</label>
+                                        </div>
+                                        <div class="cancel-wrapper" >
+                                            <button @click="deleteTask($event,task.id)" class="delete-btn">
+                                                <v-icon name="x-circle"/>
+                                            </button>
                                         </div>
                                     </div>
-                                </transition-group>
+                                </div>
+                                <div
+                                        slot="footer"
+                                        role="group"
+                                        class="small-card"
+                                >
+                                    <h5 class="text-center" @click="addNew(catIndex)">Add new card</h5>
+                                </div>
                             </draggable>
-                            <div class="small-card">
-                                <h5 class="text-center" @click="addNew(catIndex)">Add new card</h5>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -71,6 +80,7 @@
                 })
             },
             changeOrder(data){
+                console.log(data)
                 let toTask = data.to;
                 let fromTask = data.from;
                 let task_id = data.item.id;
