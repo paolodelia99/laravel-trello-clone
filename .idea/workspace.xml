@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dc8cf37a-7789-459c-8343-328e04f87ae0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/js/imgs/sfondo_azzurro.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/Board.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Board.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Login.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/Register.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Register.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/Welcome.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Welcome.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,7 +146,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/js/imgs" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -158,6 +154,11 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\phptrello\resources\js\imgs" />
+    </key>
   </component>
   <component name="RunManager" selected="PHPUnit.tests">
     <configuration name="APITest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
@@ -212,7 +213,7 @@
       <workItem from="1583164725288" duration="1835000" />
       <workItem from="1583179515786" duration="7986000" />
       <workItem from="1583242614059" duration="8758000" />
-      <workItem from="1583351062370" duration="2634000" />
+      <workItem from="1583351062370" duration="3649000" />
     </task>
     <servers />
   </component>

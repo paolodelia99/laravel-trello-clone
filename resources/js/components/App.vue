@@ -16,7 +16,7 @@
                         <!-- Authentication Links -->
                         <router-link :to="{ name: 'login' }" class="nav-link text-white-50 custom-nav-link" v-if="!isLoggedIn">Login</router-link>
                         <router-link :to="{ name: 'register' }" class="nav-link text-white-50 custom-nav-link" v-if="!isLoggedIn">Register</router-link>
-                        <li class="nav-link text-white-50" v-if="isLoggedIn"> Hi, {{name}}</li>
+                        <li class="nav-link text-white-50" v-if="isLoggedIn">Hi, {{name}}</li>
                         <li @click="logout" class="nav-link text-white-50 custom-nav-link" v-if="isLoggedIn">Logout</li>
                     </ul>
                 </div>
@@ -86,5 +86,9 @@
 
     .board-wrapper{
         background: #00c2e0;
+    }
+
+    .v-icon{
+        width: 18px;
     }
 </style>

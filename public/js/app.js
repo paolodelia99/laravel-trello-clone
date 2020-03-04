@@ -2429,7 +2429,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\nbody{\n    background: #00c2e0;\n}\n.custom-navbar{\n    background: #0079bf!important;\n}\n.custom-nav-link:hover{\n    -webkit-text-decoration-color: white;\n            text-decoration-color: white;\n    color: white!important;\n}\n.board-wrapper{\n    background: #00c2e0;\n}\n", ""]);
+exports.push([module.i, "\nbody{\n    background: #00c2e0;\n}\n.custom-navbar{\n    background: #0079bf!important;\n}\n.custom-nav-link:hover{\n    -webkit-text-decoration-color: white;\n            text-decoration-color: white;\n    color: white!important;\n}\n.board-wrapper{\n    background: #00c2e0;\n}\n.v-icon{\n    width: 18px;\n}\n", ""]);
 
 // exports
 
@@ -8414,7 +8414,7 @@ var render = function() {
                     _vm._v(" "),
                     _vm.isLoggedIn
                       ? _c("li", { staticClass: "nav-link text-white-50" }, [
-                          _vm._v(" Hi, " + _vm._s(_vm.name))
+                          _vm._v("Hi, " + _vm._s(_vm.name))
                         ])
                       : _vm._e(),
                     _vm._v(" "),
