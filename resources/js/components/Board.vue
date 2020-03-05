@@ -5,7 +5,7 @@
                 <div class="tasks-container" v-for="(category,catIndex) in categories" :key="category.id">
                     <div class="card">
                         <div class="card-header custom-card-header">
-                            <h4 class="card-title">{{category.name}}</h4>
+                            <h4 class="card-title custom-title">{{category.name}}</h4>
                         </div>
                         <div class="card-body card-body-dark">
                             <draggable
@@ -19,8 +19,8 @@
                                 <div v-for="(task,taskIndex) in category.tasks" :key="task.category_id+','+task.order+','+task.id" class="transit-1 item" :id="task.id">
                                     <div class="small-card">
                                         <div style="width: 85%">
-                                            <textarea v-if="task === editingTask" class="text-input" @keyup.enter="endEditing(task)" @blur="endEditing(task)" v-model="task.name"></textarea>
-                                            <label for="checkbox" v-if="task !== editingTask" @dblclick="editTask(task)" class="task-text-container">{{ task.name }}</label>
+                                            <textarea v-if="task === editingTask" class="text-input task-text" @keyup.enter="endEditing(task)" @blur="endEditing(task)" v-model="task.name"></textarea>
+                                            <label for="checkbox" v-if="task !== editingTask" @dblclick="editTask(task)" class="task-text">{{ task.name }}</label>
                                         </div>
                                         <div class="cancel-wrapper" >
                                             <button @click="deleteTask($event,task.id)" class="delete-btn">
@@ -34,7 +34,7 @@
                                         role="group"
                                         class="small-card"
                                 >
-                                    <h5 class="text-center" @click="addNew(catIndex)">Add new card</h5>
+                                    <h5 class="text-center task-text" @click="addNew(catIndex)">Add new card</h5>
                                 </div>
                             </draggable>
                         </div>
@@ -149,6 +149,11 @@
         color: white!important;
     }
 
+    .custom-title{
+        color: white!important;
+        font-size: 24px;
+    }
+
     .categories-container{
         width: 100%;
         display:flex;
@@ -193,8 +198,9 @@
         width: 18px;
     }
 
-    .task-text-container{
+    .task-text{
         word-wrap: break-word;
+        font-size: 18px;
     }
 
     .card-body-dark{

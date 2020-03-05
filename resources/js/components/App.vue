@@ -2,8 +2,8 @@
     <div>
         <nav class="navbar navbar-expand-md navbar-light custom-navbar navbar-laravel">
             <div class="container">
-                <router-link :to="{name: 'home'}" class="navbar-brand text-white" v-if="!isLoggedIn">Treclon</router-link>
-                <router-link :to="{name: 'board'}" class="navbar-brand text-white" v-if="isLoggedIn">Treclon</router-link>
+                <router-link :to="{name: 'home'}" class="navbar-brand custom-brand" v-if="!isLoggedIn">TasksPro</router-link>
+                <router-link :to="{name: 'board'}" class="navbar-brand custom-brand" v-if="isLoggedIn">TasksPro</router-link>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -14,10 +14,10 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
-                        <router-link :to="{ name: 'login' }" class="nav-link text-white-50 custom-nav-link" v-if="!isLoggedIn">Login</router-link>
-                        <router-link :to="{ name: 'register' }" class="nav-link text-white-50 custom-nav-link" v-if="!isLoggedIn">Register</router-link>
-                        <li class="nav-link text-white-50" v-if="isLoggedIn"> Hi, {{name}}</li>
-                        <li @click="logout" class="nav-link text-white-50 custom-nav-link" v-if="isLoggedIn">Logout</li>
+                        <router-link :to="{ name: 'login' }" class="nav-link custom-font custom-nav-link font-weight-bolder" v-if="!isLoggedIn">Login</router-link>
+                        <router-link :to="{ name: 'register' }" class="nav-link custom-font custom-nav-link font-weight-bolder" v-if="!isLoggedIn">Register</router-link>
+                        <li class="nav-link custom-font" v-if="isLoggedIn"> Hi, {{name}}</li>
+                        <li @click="logout" class="nav-link custom-font custom-nav-link font-weight-bolder" v-if="isLoggedIn">Logout</li>
                     </ul>
                 </div>
             </div>
@@ -82,6 +82,20 @@
     .custom-nav-link:hover{
         text-decoration-color: white;
         color: white!important;
+        opacity: 1;
+    }
+
+    .custom-font{
+        color: white!important;
+        opacity: 0.75;
+        margin: 0 5px;
+        font-size: 18px;
+    }
+
+    .custom-brand{
+        color: white!important;
+        font-size: 24px;
+        font-weight: bold;
     }
 
     .board-wrapper{

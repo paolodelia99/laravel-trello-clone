@@ -3,10 +3,10 @@
         <div class="content">
             <div  class="m-b-md">
                 <h2 class="title m-b-md text-white font-weight-bold">
-                    Treclon
+                    TasksPro
                 </h2>
                 <h3 class="text-white">
-                    Your efficent task planner
+                    Bring your productivity to the next level
                 </h3>
             </div>
         </div>

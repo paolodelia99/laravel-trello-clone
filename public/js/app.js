@@ -2429,7 +2429,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\nbody{\n    background: #00c2e0;\n}\n.custom-navbar{\n    background: #0079bf!important;\n}\n.custom-nav-link:hover{\n    -webkit-text-decoration-color: white;\n            text-decoration-color: white;\n    color: white!important;\n}\n.board-wrapper{\n    background: #00c2e0;\n}\n", ""]);
+exports.push([module.i, "\nbody{\n    background: #00c2e0;\n}\n.custom-navbar{\n    background: #0079bf!important;\n}\n.custom-nav-link:hover{\n    -webkit-text-decoration-color: white;\n            text-decoration-color: white;\n    color: white!important;\n    opacity: 1;\n}\n.custom-font{\n    color: white!important;\n    opacity: 0.75;\n    margin: 0 5px;\n    font-size: 18px;\n}\n.custom-brand{\n    color: white!important;\n    font-size: 24px;\n    font-weight: bold;\n}\n.board-wrapper{\n    background: #00c2e0;\n}\n", ""]);
 
 // exports
 
@@ -2448,7 +2448,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.custom-card-header[data-v-7299848b]{\n    background: #00c2e0;\n    color: white!important;\n}\n.categories-container[data-v-7299848b]{\n    width: 100%;\n    display:flex;\n    flex-direction: row;\n    flex-wrap: nowrap;\n    justify-content: space-around;\n}\n.tasks-container[data-v-7299848b]{\n    flex-basis: 30%;\n}\n.card[data-v-7299848b] {\n    border:0;\n    border-radius: 0.5rem;\n}\n.transit-1[data-v-7299848b] {\n    transition: all 1s;\n}\n.small-card[data-v-7299848b] {\n    padding: 1rem;\n    background: #f5f8fa;\n    margin-bottom: 5px;\n    border-radius: .25rem;\n    display: flex;\n    flex-direction: row;\n    flex-wrap: nowrap;\n}\n.cancel-wrapper[data-v-7299848b]{\n    margin: 2px;\n}\n.delete-btn[data-v-7299848b]{\n    background: transparent;\n    border: none;\n}\n.icon[data-v-7299848b],.v-icon[data-v-7299848b]{\n    width: 18px;\n}\n.task-text-container[data-v-7299848b]{\n    word-wrap: break-word;\n}\n.card-body-dark[data-v-7299848b]{\n    background-color: #ccc;\n}\ntextarea[data-v-7299848b] {\n    overflow: visible;\n    outline: 1px dashed black;\n    border: 0;\n    padding: 6px 0 2px 8px;\n    width: 100%;\n    height: 100%;\n    resize: none;\n}\n\n", ""]);
+exports.push([module.i, "\n.custom-card-header[data-v-7299848b]{\n    background: #00c2e0;\n    color: white!important;\n}\n.custom-title[data-v-7299848b]{\n    color: white!important;\n    font-size: 24px;\n}\n.categories-container[data-v-7299848b]{\n    width: 100%;\n    display:flex;\n    flex-direction: row;\n    flex-wrap: nowrap;\n    justify-content: space-around;\n}\n.tasks-container[data-v-7299848b]{\n    flex-basis: 30%;\n}\n.card[data-v-7299848b] {\n    border:0;\n    border-radius: 0.5rem;\n}\n.transit-1[data-v-7299848b] {\n    transition: all 1s;\n}\n.small-card[data-v-7299848b] {\n    padding: 1rem;\n    background: #f5f8fa;\n    margin-bottom: 5px;\n    border-radius: .25rem;\n    display: flex;\n    flex-direction: row;\n    flex-wrap: nowrap;\n}\n.cancel-wrapper[data-v-7299848b]{\n    margin: 2px;\n}\n.delete-btn[data-v-7299848b]{\n    background: transparent;\n    border: none;\n}\n.icon[data-v-7299848b],.v-icon[data-v-7299848b]{\n    width: 18px;\n}\n.task-text[data-v-7299848b]{\n    word-wrap: break-word;\n    font-size: 18px;\n}\n.card-body-dark[data-v-7299848b]{\n    background-color: #ccc;\n}\ntextarea[data-v-7299848b] {\n    overflow: visible;\n    outline: 1px dashed black;\n    border: 0;\n    padding: 6px 0 2px 8px;\n    width: 100%;\n    height: 100%;\n    resize: none;\n}\n\n", ""]);
 
 // exports
 
@@ -8355,10 +8355,10 @@ var render = function() {
               ? _c(
                   "router-link",
                   {
-                    staticClass: "navbar-brand text-white",
+                    staticClass: "navbar-brand custom-brand",
                     attrs: { to: { name: "home" } }
                   },
-                  [_vm._v("Treclon")]
+                  [_vm._v("TasksPro")]
                 )
               : _vm._e(),
             _vm._v(" "),
@@ -8366,10 +8366,10 @@ var render = function() {
               ? _c(
                   "router-link",
                   {
-                    staticClass: "navbar-brand text-white",
+                    staticClass: "navbar-brand custom-brand",
                     attrs: { to: { name: "board" } }
                   },
-                  [_vm._v("Treclon")]
+                  [_vm._v("TasksPro")]
                 )
               : _vm._e(),
             _vm._v(" "),
@@ -8393,7 +8393,7 @@ var render = function() {
                           "router-link",
                           {
                             staticClass:
-                              "nav-link text-white-50 custom-nav-link",
+                              "nav-link custom-font custom-nav-link font-weight-bolder",
                             attrs: { to: { name: "login" } }
                           },
                           [_vm._v("Login")]
@@ -8405,7 +8405,7 @@ var render = function() {
                           "router-link",
                           {
                             staticClass:
-                              "nav-link text-white-50 custom-nav-link",
+                              "nav-link custom-font custom-nav-link font-weight-bolder",
                             attrs: { to: { name: "register" } }
                           },
                           [_vm._v("Register")]
@@ -8413,7 +8413,7 @@ var render = function() {
                       : _vm._e(),
                     _vm._v(" "),
                     _vm.isLoggedIn
-                      ? _c("li", { staticClass: "nav-link text-white-50" }, [
+                      ? _c("li", { staticClass: "nav-link custom-font" }, [
                           _vm._v(" Hi, " + _vm._s(_vm.name))
                         ])
                       : _vm._e(),
@@ -8423,7 +8423,7 @@ var render = function() {
                           "li",
                           {
                             staticClass:
-                              "nav-link text-white-50 custom-nav-link",
+                              "nav-link custom-font custom-nav-link font-weight-bolder",
                             on: { click: _vm.logout }
                           },
                           [_vm._v("Logout")]
@@ -8498,7 +8498,7 @@ var render = function() {
             [
               _c("div", { staticClass: "card" }, [
                 _c("div", { staticClass: "card-header custom-card-header" }, [
-                  _c("h4", { staticClass: "card-title" }, [
+                  _c("h4", { staticClass: "card-title custom-title" }, [
                     _vm._v(_vm._s(category.name))
                   ])
                 ]),
@@ -8546,7 +8546,7 @@ var render = function() {
                                             expression: "task.name"
                                           }
                                         ],
-                                        staticClass: "text-input",
+                                        staticClass: "text-input task-text",
                                         domProps: { value: task.name },
                                         on: {
                                           keyup: function($event) {
@@ -8585,7 +8585,7 @@ var render = function() {
                                     ? _c(
                                         "label",
                                         {
-                                          staticClass: "task-text-container",
+                                          staticClass: "task-text",
                                           attrs: { for: "checkbox" },
                                           on: {
                                             dblclick: function($event) {
@@ -8633,7 +8633,7 @@ var render = function() {
                             _c(
                               "h5",
                               {
-                                staticClass: "text-center",
+                                staticClass: "text-center task-text",
                                 on: {
                                   click: function($event) {
                                     return _vm.addNew(catIndex)
@@ -9040,11 +9040,13 @@ var staticRenderFns = [
           _c(
             "h2",
             { staticClass: "title m-b-md text-white font-weight-bold" },
-            [_vm._v("\n                Treclon\n            ")]
+            [_vm._v("\n                TasksPro\n            ")]
           ),
           _vm._v(" "),
           _c("h3", { staticClass: "text-white" }, [
-            _vm._v("\n                Your efficent task planner\n            ")
+            _vm._v(
+              "\n                Bring your productivity to the next level\n            "
+            )
           ])
         ])
       ])
