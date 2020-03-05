@@ -2,6 +2,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="categories-container">
+                <!--Category container-->
                 <div class="tasks-container" v-for="(category,catIndex) in categories" :key="category.id">
                     <div class="card">
                         <div class="card-header custom-card-header">
@@ -16,6 +17,7 @@
                                 draggable=".item"
                                 :id="category.id"
                             >
+                                <!--Task container-->
                                 <div v-for="(task,taskIndex) in category.tasks" :key="task.category_id+','+task.order+','+task.id" class="transit-1 item" :id="task.id">
                                     <div class="small-card">
                                         <div style="width: 85%">
@@ -29,6 +31,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                <!--Add new task container-->
                                 <div
                                         slot="footer"
                                         role="group"
@@ -60,6 +63,7 @@
             }
         },
         methods : {
+            //Add new Task
             addNew(id) {
                 if(localStorage.getItem('user_id')){
                     let user_id = localStorage.getItem('user_id');
@@ -72,6 +76,7 @@
                     })
                 }
             },
+            //Fetch tasks for every category
             loadTasks() {
                 this.categories.map(category => {
                     axios.get(`api/category/${category.id}/tasks`).then(response => {
@@ -79,6 +84,7 @@
                     })
                 })
             },
+            //Change the Task order
             changeOrder(data){
                 let toTask = data.to;
                 let fromTask = data.from;
@@ -90,14 +96,17 @@
                     axios.patch(`api/task/${task_id}`, {order, category_id});
                 }
             },
+            //Patch reqest when the editing is finished
             endEditing(task) {
                 this.editingTask = null;
 
                 axios.patch(`api/task/${task.id}`, {name: task.name});
             },
+            //Set current edit task
             editTask(task){
                 this.editingTask = task
             },
+            //Hide a task and remove it
             deleteTask(e,id){
                 axios.delete(`api/task/${id}`)
                     .then(()=>{
@@ -113,6 +122,7 @@
             axios.defaults.headers.common['Content-Type'] = 'application/json';
             axios.defaults.headers.common['Authorization'] = 'Bearer ' + token;
 
+            //Fetch all the categories and the respective tasks
             axios.get('api/category').then(response => {
                 response.data.forEach((data) => {
                     this.categories.push({

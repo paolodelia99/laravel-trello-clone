@@ -2073,6 +2073,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Board",
@@ -2086,6 +2089,7 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    //Add new Task
     addNew: function addNew(id) {
       var _this = this;
 
@@ -2104,6 +2108,7 @@ __webpack_require__.r(__webpack_exports__);
         });
       }
     },
+    //Fetch tasks for every category
     loadTasks: function loadTasks() {
       this.categories.map(function (category) {
         axios.get("api/category/".concat(category.id, "/tasks")).then(function (response) {
@@ -2111,6 +2116,7 @@ __webpack_require__.r(__webpack_exports__);
         });
       });
     },
+    //Change the Task order
     changeOrder: function changeOrder(data) {
       var toTask = data.to;
       var fromTask = data.from;
@@ -2125,15 +2131,18 @@ __webpack_require__.r(__webpack_exports__);
         });
       }
     },
+    //Patch reqest when the editing is finished
     endEditing: function endEditing(task) {
       this.editingTask = null;
       axios.patch("api/task/".concat(task.id), {
         name: task.name
       });
     },
+    //Set current edit task
     editTask: function editTask(task) {
       this.editingTask = task;
     },
+    //Hide a task and remove it
     deleteTask: function deleteTask(e, id) {
       axios["delete"]("api/task/".concat(id)).then(function () {
         var smallCardNode = e.target.parentNode.parentNode.parentNode;
@@ -2146,7 +2155,8 @@ __webpack_require__.r(__webpack_exports__);
 
     var token = localStorage.getItem('jwt');
     axios.defaults.headers.common['Content-Type'] = 'application/json';
-    axios.defaults.headers.common['Authorization'] = 'Bearer ' + token;
+    axios.defaults.headers.common['Authorization'] = 'Bearer ' + token; //Fetch all the categories and the respective tasks
+
     axios.get('api/category').then(function (response) {
       response.data.forEach(function (data) {
         _this2.categories.push({
@@ -2467,7 +2477,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.custom-card-header[data-v-6bdc8b8e]{\n    background: #0079bf;\n    color: white!important;\n}\n", ""]);
+exports.push([module.i, "\n.custom-card-header[data-v-6bdc8b8e]{\n    background: #0079bf;\n    color: white!important;\n}\n.custom-title[data-v-6bdc8b8e]{\n    font-size: 20px;\n}\n.custom-label-text[data-v-6bdc8b8e]{\n    font-size: 18px;\n}\n.custom-btn-txt[data-v-6bdc8b8e]{\n    font-size: 16px;\n}\n", ""]);
 
 // exports
 
@@ -2486,7 +2496,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.custom-card-header[data-v-97358ae4]{\n    background: #0079bf;\n    color: white!important;\n}\n", ""]);
+exports.push([module.i, "\n.custom-card-header[data-v-97358ae4]{\n    background: #0079bf;\n    color: white!important;\n}\n.custom-title[data-v-97358ae4]{\n    font-size: 20px;\n}\n.custom-btn-txt[data-v-97358ae4]{\n    font-size: 16px;\n}\n.custom-label-text[data-v-97358ae4]{\n    font-size: 18px;\n}\n", ""]);
 
 // exports
 
@@ -8689,7 +8699,7 @@ var render = function() {
             "div",
             {
               staticClass:
-                "card-header custom-card-header text-center font-weight-bolder"
+                "card-header custom-card-header text-center font-weight-bolder custom-title"
             },
             [_vm._v("Login")]
           ),
@@ -8700,7 +8710,8 @@ var render = function() {
                 _c(
                   "label",
                   {
-                    staticClass: "col-sm-4 col-form-label text-md-right",
+                    staticClass:
+                      "col-sm-4 col-form-label text-md-right custom-label-text",
                     attrs: { for: "email" }
                   },
                   [_vm._v("E-Mail Address")]
@@ -8716,7 +8727,7 @@ var render = function() {
                         expression: "email"
                       }
                     ],
-                    staticClass: "form-control",
+                    staticClass: "form-control custom-label-text",
                     attrs: {
                       id: "email",
                       type: "email",
@@ -8740,7 +8751,8 @@ var render = function() {
                 _c(
                   "label",
                   {
-                    staticClass: "col-md-4 col-form-label text-md-right",
+                    staticClass:
+                      "col-md-4 col-form-label text-md-right custom-label-text",
                     attrs: { for: "password" }
                   },
                   [_vm._v("Password")]
@@ -8756,7 +8768,7 @@ var render = function() {
                         expression: "password"
                       }
                     ],
-                    staticClass: "form-control",
+                    staticClass: "form-control custom-label-text",
                     attrs: { id: "password", type: "password", required: "" },
                     domProps: { value: _vm.password },
                     on: {
@@ -8776,7 +8788,7 @@ var render = function() {
                   _c(
                     "button",
                     {
-                      staticClass: "btn btn-primary",
+                      staticClass: "btn btn-primary custom-btn-txt",
                       attrs: { type: "submit" },
                       on: { click: _vm.handleSubmit }
                     },
@@ -8825,7 +8837,7 @@ var render = function() {
             "div",
             {
               staticClass:
-                "card-header custom-card-header text-center font-weight-bolder"
+                "card-header custom-card-header text-center font-weight-bolder custom-title"
             },
             [_vm._v("Register")]
           ),
@@ -8836,7 +8848,8 @@ var render = function() {
                 _c(
                   "label",
                   {
-                    staticClass: "col-md-4 col-form-label text-md-right",
+                    staticClass:
+                      "col-md-4 col-form-label text-md-right custom-label-text",
                     attrs: { for: "name" }
                   },
                   [_vm._v("Name")]
@@ -8852,7 +8865,7 @@ var render = function() {
                         expression: "name"
                       }
                     ],
-                    staticClass: "form-control",
+                    staticClass: "form-control custom-label-text",
                     attrs: {
                       id: "name",
                       type: "text",
@@ -8876,7 +8889,8 @@ var render = function() {
                 _c(
                   "label",
                   {
-                    staticClass: "col-md-4 col-form-label text-md-right",
+                    staticClass:
+                      "col-md-4 col-form-label text-md-right custom-label-text",
                     attrs: { for: "email" }
                   },
                   [_vm._v("E-Mail Address")]
@@ -8892,7 +8906,7 @@ var render = function() {
                         expression: "email"
                       }
                     ],
-                    staticClass: "form-control",
+                    staticClass: "form-control custom-label-text",
                     attrs: { id: "email", type: "email", required: "" },
                     domProps: { value: _vm.email },
                     on: {
@@ -8911,7 +8925,8 @@ var render = function() {
                 _c(
                   "label",
                   {
-                    staticClass: "col-md-4 col-form-label text-md-right",
+                    staticClass:
+                      "col-md-4 col-form-label text-md-right custom-label-text",
                     attrs: { for: "password" }
                   },
                   [_vm._v("Password")]
@@ -8927,7 +8942,7 @@ var render = function() {
                         expression: "password"
                       }
                     ],
-                    staticClass: "form-control",
+                    staticClass: "form-control custom-label-text",
                     attrs: { id: "password", type: "password", required: "" },
                     domProps: { value: _vm.password },
                     on: {
@@ -8946,7 +8961,8 @@ var render = function() {
                 _c(
                   "label",
                   {
-                    staticClass: "col-md-4 col-form-label text-md-right",
+                    staticClass:
+                      "col-md-4 col-form-label text-md-right custom-label-text",
                     attrs: { for: "password-confirm" }
                   },
                   [_vm._v("Confirm Password")]
@@ -8962,7 +8978,7 @@ var render = function() {
                         expression: "password_confirmation"
                       }
                     ],
-                    staticClass: "form-control",
+                    staticClass: "form-control custom-label-text",
                     attrs: {
                       id: "password-confirm",
                       type: "password",
@@ -8986,7 +9002,7 @@ var render = function() {
                   _c(
                     "button",
                     {
-                      staticClass: "btn btn-primary",
+                      staticClass: "btn btn-primary custom-btn-txt",
                       attrs: { type: "submit" },
                       on: { click: _vm.handleSubmit }
                     },
