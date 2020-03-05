@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dc8cf37a-7789-459c-8343-328e04f87ae0" name="Default Changelist" comment="" />
+    <list default="true" id="dc8cf37a-7789-459c-8343-328e04f87ae0" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -209,7 +212,9 @@
       <workItem from="1583164725288" duration="1835000" />
       <workItem from="1583179515786" duration="7986000" />
       <workItem from="1583242614059" duration="8758000" />
-      <workItem from="1583351062370" duration="6969000" />
+      <workItem from="1583351062370" duration="7887000" />
+      <workItem from="1583359370574" duration="13000" />
+      <workItem from="1583412691602" duration="576000" />
     </task>
     <servers />
   </component>
@@ -281,10 +286,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="862" y="100" width="581" height="630" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1536.824@0.0.1536.824" timestamp="1583317995359" />
-    <state x="849" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1583351063139">
+    <state x="849" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1583412697147">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="849" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1583351063139" />
+    <state x="849" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1583412697147" />
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1583247517514">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
