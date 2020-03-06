@@ -8843,7 +8843,7 @@ var render = function() {
           ),
           _vm._v(" "),
           _c("div", { staticClass: "card-body" }, [
-            _c("form", { attrs: { method: "POST", action: "/register" } }, [
+            _c("form", { on: { submit: _vm.handleSubmit } }, [
               _c("div", { staticClass: "form-group row" }, [
                 _c(
                   "label",

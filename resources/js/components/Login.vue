@@ -6,7 +6,7 @@
                     <div class="card-header custom-card-header text-center font-weight-bolder custom-title">Login</div>
 
                     <div class="card-body">
-                        <form @submit="handleSubmit">
+                        <form method="POST" action="/login">
                             <div class="form-group row">
                                 <label for="email" class="col-sm-4 col-form-label text-md-right custom-label-text">E-Mail Address</label>
 
