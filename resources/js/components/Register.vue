@@ -6,7 +6,7 @@
                     <div class="card-header custom-card-header text-center font-weight-bolder custom-title">Register</div>
 
                     <div class="card-body">
-                        <form method="POST" action="/register">
+                        <form @submit="handleSubmit">
                             <div class="form-group row">
                                 <label for="name" class="col-md-4 col-form-label text-md-right custom-label-text">Name</label>
 
